@@ -82,3 +82,11 @@
         Los headers en un request son los parámetros que se envían en una petición o respuesta HTTP al cliente o al servidor para proporcionar información esencial sobre la transacción en curso. Content-Type es la propiedad de cabecera (header) usada para indicar el media type (en-US) del recurso. Content-Type dice al cliente que tipo de contenido será retornado.
 
 # Ejercicio 3.
+
+## 1. [![ejercicio-1-get.jpg](https://i.postimg.cc/QC30vY6c/ejercicio-1-get.jpg)](https://postimg.cc/34tXv1Qw)
+
+## 2. [![ejercicio-2-post.jpg](https://i.postimg.cc/rmWfn298/ejercicio-2-post.jpg)](https://postimg.cc/47fvyMMM)
+
+## 3. [![ejercicio-3-post.jpg](https://i.postimg.cc/hGXymdzQ/ejercicio-3-post.jpg)](https://postimg.cc/t1HNQ7z9)
+
+            La diferencia con la primer consulta, es que me trae la base con el nuevo dato que agregue con el metodo POST en el segundo ejercicio.
