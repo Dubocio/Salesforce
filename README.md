@@ -131,4 +131,4 @@
 
              Su base de Salesforce Knowledge se crea desde artículos de conocimientos, que son documentos de información. Los artículos pueden incluir información sobre procesos, como cómo restablecer su producto a sus valores predeterminados o preguntas más frecuentes como cuánto almacenamiento admite su producto.
 
-# Ejecicio 5.b Relaciones: [[![diagrama.jpg](https://i.postimg.cc/tCR0bY3N/diagrama.jpg)](https://postimg.cc/Btz7cZwj)]
+# Ejecicio 5.b Relaciones: [![diagrama.jpg](https://i.postimg.cc/tCR0bY3N/diagrama.jpg)](https://postimg.cc/Btz7cZwj)
