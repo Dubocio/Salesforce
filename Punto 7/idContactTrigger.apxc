@@ -1,0 +1,10 @@
+trigger idContactTrigger on Contact (before insert, before update,after insert, after update) {
+    
+   if (Trigger.isInsert && Trigger.isUpdate){
+        for(Contact con :trigger.new){
+            getDataFromId.getEmail(); 
+            update con;
+        }
+       
+    }
+}    
