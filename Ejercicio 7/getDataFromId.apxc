@@ -1,39 +1,29 @@
-public class getDataFromId { 
-    
-    
+public class getDataFromId {     
     @future(callout=true)
- 	public static void getEmail(){
-           String ruta = 'https://procontacto-reclutamiento-default-rtdb.firebaseio.com/contacts.json';    
-           Http http = new Http();
-           HttpRequest request = new HttpRequest();
-           request.setEndpoint(ruta);
-		   request.setMethod('GET');
-           String mail = '';   
-           HttpResponse response = http.send(request);               
-               if (response.getStatusCode()== 200){
-                   Map<String, Object> resultados = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
-                   Map<String, Object> idpro =(Map<String,Object>) resultados.get('-N9NZtx-LyCQgg6oTgNl'); 
-                   mail = String.valueOf(idpro.get('email'));
-                   List<Contact> contactos = busquedaContactos('-N9NZtx-LyCQgg6oTgNl');
-                       for(Contact con : contactos){
-                           if (con.idprocontacto__c == '-N9NZtx-LyCQgg6oTgNl'){
-                              con.Email = mail;
-                               update con;
-                           }
-                           
-                           }
-                    
-                       }
-                   
-                   }
-        public static List<Contact> busquedaContactos( String idprocontacto){
-        List<Contact> retList = [SELECT idprocontacto__c
-                                FROM Contact 
-                                WHERE idprocontacto__c= :idprocontacto];        
-        return retList;
-        
+    public static void getEmail(id idcontactos){
+        system.debug('idcontactos' + idcontactos);
+        String ruta = 'https://procontacto-reclutamiento-default-rtdb.firebaseio.com/contacts.json';    
+        Http http = new Http();
+        HttpRequest request = new HttpRequest();
+        request.setEndpoint(ruta);
+        request.setMethod('GET');
+        String mail = '';   
+        HttpResponse response = http.send(request);               
+        if (response.getStatusCode()== 200){
+            Map<String, Object> resultados = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
+            Map<String, Object> idpro =(Map<String,Object>) resultados.get('-N9NZtx-LyCQgg6oTgNl'); 
+            mail = String.valueOf(idpro.get('email'));
+            List<Contact> contactos = busquedaContactos(idcontactos);
+            contactos[0].Email = mail;
+            ProcesorControl.inFutureContext = true; 
+            update contactos;                                                  
+        }        
+    }
+    public static List<Contact> busquedaContactos( id idcontactos){
+        List<Contact> retList = [SELECT Email, idprocontacto__c
+                                 FROM Contact 
+                                 WHERE id= :idcontactos];        
+        return retList;        
     }
     
- }
-      		
-    
+}

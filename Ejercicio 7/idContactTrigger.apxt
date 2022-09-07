@@ -1,0 +1,10 @@
+trigger idContactTrigger on Contact (after insert, before update) { 
+        
+    if (!ProcesorControl.inFutureContext) {
+        if ((Trigger.isUpdate && Trigger.isBefore) || (Trigger.isInsert && Trigger.isAfter)){
+            for(Contact con:Trigger.new){
+                getDataFromId.getEmail(con.Id);
+            }
+        }
+    }
+}
